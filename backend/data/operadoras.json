@@ -1,0 +1,8 @@
+{
+    "nextId": 4,
+    "operadoras": [
+        {"id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2},
+        {"id": 2, "nome": "Vivo", "codigo": 15, "categoria": "Celular", "preco": 1},
+        {"id": 3, "nome": "Tim", "codigo": 41, "categoria": "Celular", "preco": 3}
+    ]
+}

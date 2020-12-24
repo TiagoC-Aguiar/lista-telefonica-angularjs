@@ -1,0 +1,26 @@
+{
+  "nextId": 4,
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "João da Silva",
+      "telefone": "99999-9988",
+      "operadora": 1,
+      "data": "2020-12-23T19:56:59.950Z"
+    },
+    {
+      "id": 2,
+      "nome": "Lucas Montano",
+      "telefone": "99999-9977",
+      "operadora": 3,
+      "data": "2020-12-23T21:47:30.267Z"
+    },
+    {
+      "id": 3,
+      "nome": "Bruna Souza",
+      "telefone": "99999-9966",
+      "operadora": 2,
+      "data": "2020-12-23T21:48:44.393Z"
+    }
+  ]
+}
