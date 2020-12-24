@@ -1,6 +1,6 @@
 {
   "name": "projeto-aula-rodr-branas-angularjs",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo 'teste'",
+      "pre-commit": "cd frontend && npm version patch && cd .. && ls && npm version patch --no-git-tag-version && git add .",
       "pre-push": "npm test"
     }
-  },
-  "lint-staged": {
-    "frontend/*.html": ["cd frontend", "npm version patch"]
   },
   "keywords": [],
   "author": "",
