@@ -13,7 +13,7 @@
     }
   },
   "lint-staged": {
-    "frontend": "echo 'teste'"
+    "frontend/*.html": "echo 'teste'"
   },
   "keywords": [],
   "author": "",
