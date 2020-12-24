@@ -15,7 +15,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server",
-    "build": "npm version patch"
+    "build": "npm version patch",
+    "postinstall": "husky install"
   },
   "keywords": [],
   "author": "",
