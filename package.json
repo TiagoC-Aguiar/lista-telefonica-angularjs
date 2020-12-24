@@ -1,6 +1,6 @@
 {
   "name": "projeto-aula-rodr-branas-angularjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cd frontend && npm version patch && cd .. && ls && npm version patch --no-git-tag-version && git add .",
+      "pre-commit": "if [[ $(git diff --cached --name-only | wc -l) == \"0\" ]]; then cd frontend && npm version patch && cd ..; fi && ls && npm version patch --no-git-tag-version && git add .",
       "pre-push": "npm test"
     }
   },
