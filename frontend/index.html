@@ -34,9 +34,9 @@
       $scope.app = "Lista Telefônica";
       $scope.contatos = [];
       $scope.operadoras = [];
-      
+
       let carregarContatos = function () {
-        $http.get("http://localhost:3001/contatos").then(function (response) {          
+        $http.get("http://localhost:3001/contatos").then(function (response) {
           $scope.contatos = response.data;
         }).catch(function (error) {
           $scope.message = "Erro ao carregar contatos: " + error.data;
@@ -44,7 +44,7 @@
       };
 
       let carregarOperadoras = function () {
-        $http.get("http://localhost:3001/operadoras").then(function (response) {          
+        $http.get("http://localhost:3001/operadoras").then(function (response) {
           $scope.operadoras = response.data;
         });
       };
@@ -71,7 +71,7 @@
         $scope.criterioOrdenacao = campo;
         $scope.direcaoOrdenacao = !$scope.direcaoOrdenacao;
       };
-      
+
       carregarContatos();
       carregarOperadoras();
     });

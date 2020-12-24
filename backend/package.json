@@ -1,6 +1,6 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
+  "name": "projeto-aula-rodr-branas-backend",
+  "version": "0.0.2",
   "description": "",
   "main": "http.js",
   "scripts": {
