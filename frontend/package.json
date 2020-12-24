@@ -9,14 +9,11 @@
   "dependencies": {
     "http-server": "^0.12.3"
   },
-  "devDependencies": {
-    "husky": "^5.0.6"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server",
-    "build": "npm version patch",
-    "postinstall": "husky install"
+    "build": "npm version patch"
   },
   "keywords": [],
   "author": "",
