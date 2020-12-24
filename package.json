@@ -8,12 +8,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cd frontend && npm version patch && cd .. && npm version && git add .",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
   },
   "lint-staged": {
-    "frontend/*.html": "echo 'teste'"
+    "frontend": "echo 'teste'"
   },
   "keywords": [],
   "author": "",
