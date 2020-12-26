@@ -67,6 +67,13 @@ app.post('/file', function (req, res) {
   res.end();
 });
 
+app.delete('/contatos', function (req, res) {
+  let contato = JSON.parse(req.body.id);
+  console.log(contato);
+  // console.log(req.params.id);
+  res.end();
+});
+
 app.options('/file', function (req, res) {
   res.end();
 });
