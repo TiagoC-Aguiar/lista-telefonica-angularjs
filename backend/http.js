@@ -68,7 +68,7 @@ app.post('/file', function (req, res) {
 });
 
 app.delete('/contatos', function (req, res) {
-  let contato = JSON.parse(req.body.id);
+  let contato = JSON.parse(req.body);
   console.log(contato);
   // console.log(req.params.id);
   res.end();
