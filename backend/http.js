@@ -1,7 +1,6 @@
 let router = require('./router');
 let fs = require('fs');
 const { promisify } = require('util');
-const { join } = require('path');
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
@@ -10,12 +9,6 @@ const fileNameContatos = FILE_PATH + "contatos.json";
 const fileNameOperadoras = FILE_PATH + "operadoras.json";
 
 let app = router(3001);
-
-let contatos = [
-  { id: 1, nome: "Bruno", telefone: "9999-2222", data: new Date(), operadora: { "id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2 } },
-  { id: 2, nome: "Sandra", telefone: "9999-3333", data: new Date(), operadora: { "id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2 } },
-  { id: 3, nome: "Mariana", telefone: "9999-9999", data: new Date(), operadora: { "id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2 } }
-];
 
 app.interceptor(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -35,11 +28,11 @@ app.get('/operadoras', async function (req, res) {
 
 app.get('/contatos', async function (req, res) {
   try {
-    const data = JSON.parse(await readFile(fileNameContatos, 'utf8')); 
-    const contatos = await Promise.all(data.contatos.map(async (contato) => {            
+    const data = await lerArquivo(fileNameContatos);
+    const contatos = await Promise.all(data.contatos.map(async (contato) => {
       contato.operadora = await getOperadoraId(contato.operadora);
       return contato;
-    }));  
+    }));
 
     res.write(JSON.stringify(contatos));
   } catch (error) {
@@ -50,13 +43,22 @@ app.get('/contatos', async function (req, res) {
 });
 
 app.post('/contatos', async function (req, res) {
-  let contato = req.body;
   try {
+    let contato = req.body;
     await postContatos(contato);
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
   }
-  contatos.push(JSON.parse(contato));
+  res.end();
+});
+
+app.post('/operadoras', async function (req, res) {
+  try {
+    let operadora = req.body;
+    await postOperadoras(operadora);
+  } catch (error) {
+    console.error(error.message);
+  }
   res.end();
 });
 
@@ -74,7 +76,7 @@ app.options('/contatos', function (req, res) {
 });
 
 async function postContatos(contatoToPost) {
-  const data = JSON.parse(await readFile(fileNameContatos, 'utf8'));
+  const data = await lerArquivo(fileNameContatos);
   let contato = JSON.parse(contatoToPost);
   contato = { id: data.nextId++, ...contato };
   contato.operadora = contato.operadora.id;
@@ -83,18 +85,23 @@ async function postContatos(contatoToPost) {
   return contato;
 }
 
-// async function postOperadoras(operadoraToPost) {
-//   const data = JSON.parse(await readFile(fileNameOperadoras, 'utf8'));
-// }
+async function postOperadoras(operadoraToPost) {
+  const data = await lerArquivo(fileNameOperadoras);
+  let operadora = JSON.parse(operadoraToPost);
+  operadora = { id: data.nextId++, ...operadora };
+  data.operadoras.push(operadora);
+  await writeFile(fileNameOperadoras, JSON.stringify(data, null, 2));
+  return operadora;
+}
 
 async function getOperadoras() {
-  const data = JSON.parse(await readFile(fileNameOperadoras, 'utf8'));
+  const data = await lerArquivo(fileNameOperadoras);
   return data.operadoras;
 }
 
 async function getOperadoraId(id) {
   try {
-    const data = JSON.parse(await readFile(fileNameOperadoras, 'utf8'));
+    const data = await lerArquivo(fileNameOperadoras);
     const operadora = data.operadoras.find(operadora => {
       return operadora.id === id;
     });
@@ -108,4 +115,6 @@ async function getOperadoraId(id) {
   }
 }
 
-
+async function lerArquivo(arquivo) {
+  return JSON.parse(await readFile(arquivo, 'utf8'));
+}

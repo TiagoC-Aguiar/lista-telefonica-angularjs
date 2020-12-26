@@ -1,5 +1,5 @@
 {
-  "nextId": 4,
+  "nextId": 5,
   "contatos": [
     {
       "id": 1,
@@ -21,6 +21,13 @@
       "telefone": "99999-9966",
       "operadora": 2,
       "data": "2020-12-23T21:48:44.393Z"
+    },
+    {
+      "id": 4,
+      "nome": "Lucas Silva",
+      "telefone": "99999-9955",
+      "operadora": 1,
+      "data": "2020-12-26T02:19:17.911Z"
     }
   ]
 }
