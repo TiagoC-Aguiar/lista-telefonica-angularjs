@@ -1,5 +1,5 @@
 {
-  "nextId": 5,
+  "nextId": 6,
   "operadoras": [
     {
       "id": 1,
@@ -28,6 +28,13 @@
       "codigo": "11",
       "categoria": "Fixo",
       "preco": 1
+    },
+    {
+      "id": 5,
+      "nome": "GVT",
+      "codigo": "12",
+      "categoria": "Fixo",
+      "preco": 2
     }
   ]
 }
