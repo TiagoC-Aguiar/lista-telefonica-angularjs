@@ -7,7 +7,6 @@ angular.module("listaTelefonica").filter("name", function () {
             }
             return nome.charAt(0).toUpperCase() + nome.substring(1).toLowerCase();
         });
-        console.log(listaNomesFormatada);
         return listaNomesFormatada.join(' ');
     };
 });
