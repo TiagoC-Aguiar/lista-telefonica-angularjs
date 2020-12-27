@@ -3,7 +3,7 @@ var http = require('http');
 var createRouter = function (port) {
 	var api = {};
 	var routes = {};
-	var methods = ['GET', 'POST', 'OPTIONS'];
+	var methods = ['GET', 'POST', 'DELETE', 'OPTIONS'];
 	var interceptors = [];
 
 	methods.forEach(function (method) {

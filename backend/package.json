@@ -1,11 +1,12 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
+  "name": "projeto-aula-rodr-branas-backend",
+  "version": "0.2.1",
   "description": "",
   "main": "http.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon http.js"
+    "start": "nodemon http.js",
+    "build": "npm version patch"
   },
   "keywords": [],
   "author": "",

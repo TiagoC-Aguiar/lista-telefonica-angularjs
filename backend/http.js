@@ -1,7 +1,6 @@
 let router = require('./router');
 let fs = require('fs');
 const { promisify } = require('util');
-const { join } = require('path');
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
@@ -10,12 +9,6 @@ const fileNameContatos = FILE_PATH + "contatos.json";
 const fileNameOperadoras = FILE_PATH + "operadoras.json";
 
 let app = router(3001);
-
-let contatos = [
-  { id: 1, nome: "Bruno", telefone: "9999-2222", data: new Date(), operadora: { "id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2 } },
-  { id: 2, nome: "Sandra", telefone: "9999-3333", data: new Date(), operadora: { "id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2 } },
-  { id: 3, nome: "Mariana", telefone: "9999-9999", data: new Date(), operadora: { "id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2 } }
-];
 
 app.interceptor(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -35,11 +28,11 @@ app.get('/operadoras', async function (req, res) {
 
 app.get('/contatos', async function (req, res) {
   try {
-    const data = JSON.parse(await readFile(fileNameContatos, 'utf8')); 
-    const contatos = await Promise.all(data.contatos.map(async (contato) => {            
+    const data = await lerArquivo(fileNameContatos);
+    const contatos = await Promise.all(data.contatos.map(async (contato) => {
       contato.operadora = await getOperadoraId(contato.operadora);
       return contato;
-    }));  
+    }));
 
     res.write(JSON.stringify(contatos));
   } catch (error) {
@@ -50,18 +43,41 @@ app.get('/contatos', async function (req, res) {
 });
 
 app.post('/contatos', async function (req, res) {
-  let contato = req.body;
   try {
+    let contato = req.body;
     await postContatos(contato);
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
   }
-  contatos.push(JSON.parse(contato));
+  res.end();
+});
+
+app.post('/operadoras', async function (req, res) {
+  try {
+    let operadora = req.body;
+    await postOperadoras(operadora);
+  } catch (error) {
+    console.error(error.message);
+  }
   res.end();
 });
 
 app.post('/file', function (req, res) {
   console.log(req.body);
+  res.end();
+});
+
+app.delete('/contatos', async function (req, res) {
+  try {
+    let contato = JSON.parse(req.body);
+    const data = await lerArquivo(fileNameContatos);
+    data.contatos = data.contatos.filter(contatoBase => {
+      return contatoBase.id !== contato.id;
+    });
+    await writeFile(fileNameContatos, JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error(error.message);
+  }
   res.end();
 });
 
@@ -74,27 +90,21 @@ app.options('/contatos', function (req, res) {
 });
 
 async function postContatos(contatoToPost) {
-  const data = JSON.parse(await readFile(fileNameContatos, 'utf8'));
-  let contato = JSON.parse(contatoToPost);
-  contato = { id: data.nextId++, ...contato };
-  contato.operadora = contato.operadora.id;
-  data.contatos.push(contato);
-  await writeFile(fileNameContatos, JSON.stringify(data, null, 2));
-  return contato;
+  return await postData(fileNameContatos, contatoToPost);
 }
 
-// async function postOperadoras(operadoraToPost) {
-//   const data = JSON.parse(await readFile(fileNameOperadoras, 'utf8'));
-// }
+async function postOperadoras(operadoraToPost) {
+  return await postData(fileNameOperadoras, operadoraToPost);
+}
 
 async function getOperadoras() {
-  const data = JSON.parse(await readFile(fileNameOperadoras, 'utf8'));
+  const data = await lerArquivo(fileNameOperadoras);
   return data.operadoras;
 }
 
 async function getOperadoraId(id) {
   try {
-    const data = JSON.parse(await readFile(fileNameOperadoras, 'utf8'));
+    const data = await lerArquivo(fileNameOperadoras);
     const operadora = data.operadoras.find(operadora => {
       return operadora.id === id;
     });
@@ -108,4 +118,19 @@ async function getOperadoraId(id) {
   }
 }
 
+async function lerArquivo(arquivo) {
+  return JSON.parse(await readFile(arquivo, 'utf8'));
+}
 
+async function postData(fileName, dataToPost) {
+  const data = await lerArquivo(fileName);
+  const field = fileName.match(/(\w+).json$/)[1];
+  let newData = JSON.parse(dataToPost);
+  newData = { id: data.nextId++, ...newData };
+  if (newData['operadora']) {
+    newData.operadora = newData.operadora.id;
+  }
+  data[field].push(newData);
+  await writeFile(fileName, JSON.stringify(data, null, 2));
+  return newData;
+}

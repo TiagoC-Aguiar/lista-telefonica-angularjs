@@ -1,8 +1,40 @@
 {
-    "nextId": 4,
-    "operadoras": [
-        {"id": 1, "nome": "Oi", "codigo": 14, "categoria": "Celular", "preco": 2},
-        {"id": 2, "nome": "Vivo", "codigo": 15, "categoria": "Celular", "preco": 1},
-        {"id": 3, "nome": "Tim", "codigo": 41, "categoria": "Celular", "preco": 3}
-    ]
+  "nextId": 6,
+  "operadoras": [
+    {
+      "id": 1,
+      "nome": "Oi",
+      "codigo": 14,
+      "categoria": "Celular",
+      "preco": 2
+    },
+    {
+      "id": 2,
+      "nome": "Vivo",
+      "codigo": 15,
+      "categoria": "Celular",
+      "preco": 1
+    },
+    {
+      "id": 3,
+      "nome": "Tim",
+      "codigo": 41,
+      "categoria": "Celular",
+      "preco": 3
+    },
+    {
+      "id": 4,
+      "nome": "Embratel",
+      "codigo": "11",
+      "categoria": "Fixo",
+      "preco": 1
+    },
+    {
+      "id": 5,
+      "nome": "GVT",
+      "codigo": "12",
+      "categoria": "Fixo",
+      "preco": 2
+    }
+  ]
 }
