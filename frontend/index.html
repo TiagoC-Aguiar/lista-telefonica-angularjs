@@ -14,9 +14,10 @@
   <script src="js/services/serialGeneratorService.js"></script>
   <script src="js/services/config/serialGeneratorConfig.js"></script>
   <script src="js/value/configValue.js"></script>
+  <script src="js/filters/nameFilter.js"></script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
-  <div class="jumbotron">
+  <div class="jumbotron">    
     <h3>{{app}}</h3>
     {{message}}
     <input class="form-control" type="text" ng-model="criterioBusca" placeholder="Pesquisar..." />
@@ -34,7 +35,7 @@
         ng-repeat="contato in contatos | filter:criterioBusca | orderBy:criterioOrdenacao:direcaoOrdenacao">
         <td><input type="checkbox" ng-model="contato.selecionado" /></td>
         <td>{{contato.serial}}</td>
-        <td>{{contato.nome}}</td>
+        <td>{{contato.nome | name }}</td>
         <td>{{contato.telefone}}</td>
         <td>{{contato.operadora.nome | lowercase}}</td>
         <td>{{contato.data | date:'dd/MM/yyyy HH:mm'}}</td>

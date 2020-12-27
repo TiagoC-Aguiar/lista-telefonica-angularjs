@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web-backend: 
+    build: 
+      context: ./backend
+    container_name: lista-telefonica-angularjs-backend
+    ports:
+      - 3002:3001
+    volumes: 
+      - "./backend:/app"    
+      - "/app/node_modules"
+  web-frontend:
+    build: 
+      context: ./frontend
+    container_name: lista-telefonica-angularjs-frontend
+    ports: 
+      - 8081:8080
+    volumes:
+      - "./frontend:/web-app"
+      - "/web-app/node_modules"
+    depends_on:
+      - web-backend

@@ -9,7 +9,6 @@
   "dependencies": {
     "http-server": "^0.12.3"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server",
