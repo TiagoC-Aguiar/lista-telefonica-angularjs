@@ -67,10 +67,18 @@ app.post('/file', function (req, res) {
   res.end();
 });
 
-app.delete('/contatos', function (req, res) {
-  let contato = JSON.parse(req.body);
-  console.log(contato);
-  // console.log(req.params.id);
+app.delete('/contatos', async function (req, res) {
+  try {
+    let contato = JSON.parse(req.body);
+    const data = await lerArquivo(fileNameContatos);
+    data.contatos = data.contatos.filter(contatoBase => {
+      // console.log(contatoBase.id === contato.id);
+      return contatoBase.id !== contato.id;      
+    });
+    await writeFile(fileNameContatos, JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error(error.message);
+  }
   res.end();
 });
 
