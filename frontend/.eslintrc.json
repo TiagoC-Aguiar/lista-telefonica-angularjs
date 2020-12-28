@@ -10,8 +10,7 @@
         "ecmaVersion": 12
     },
     "rules": {
-    },
-    "globals": {
-      "angular": "readonly"
+      "no-undef": "off",
+      "no-param-reassign": ["error", {"props": false}]
     }
 }

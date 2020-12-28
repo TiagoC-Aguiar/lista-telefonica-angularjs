@@ -4,15 +4,21 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', ($scope, con
   $scope.operadoras = [];
 
   const carregarContatos = () => {
-    contatosAPI.getContatos().then(function (response) {
-      $scope.contatos = response.data;
-    }).catch(function (error) {
-      $scope.message = "Erro ao carregar contatos: " + error.data;
+    contatosAPI.getContatos().then((response) => {
+      const { data } = response;
+      data.forEach((item) => {
+        item.serial = serialGenerator.generate();
+      });
+      $scope.contatos = data;
+    // eslint-disable-next-line no-unused-vars
+    }).catch((error) => {
+      $scope.error = 'Não foi possível carregar os dados!';
+      // $scope.message = `Erro ao carregar contatos: ${error.data}`;
     });
   };
 
-  let carregarOperadoras = function () {
-    operadorasAPI.getOperadoras().then(function (response) {
+  const carregarOperadoras = () => {
+    operadorasAPI.getOperadoras().then((response) => {
       $scope.operadoras = response.data;
     });
   };
@@ -26,13 +32,17 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', ($scope, con
       carregarContatos();
     });
   };
-  $scope.estaSelecionado = function () {
-    return $scope.contatos.some(function (contato) {
+
+  // eslint-disable-next-line arrow-body-style
+  $scope.estaSelecionado = () => {
+    // eslint-disable-next-line arrow-body-style
+    return $scope.contatos.some((contato) => {
       return contato.selecionado;
     });
   };
-  $scope.apagarContatos = function (contatos) {
-    $scope.contatos = contatos.filter(function (contato) {
+  $scope.apagarContatos = (contatos) => {
+    // eslint-disable-next-line arrow-body-style
+    $scope.contatos = contatos.filter((contato) => {
       return !contato.selecionado;
     });
   };
