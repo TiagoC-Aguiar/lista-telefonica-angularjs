@@ -22,10 +22,10 @@
 <body ng-controller="listaTelefonicaCtrl">
   <div class="jumbotron">    
     <h2>{{app}}</h2>
-    
-    {{$id}}
-    
-    <ui-alert title="Opa, aconteceu um problema!" message="error"></ui-alert>    
+       
+    <ui-alert title="Opa, aconteceu um problema!">
+      {{error}}
+    </ui-alert>    
 
     <input class="form-control" type="text" ng-model="criterioBusca" placeholder="Pesquisar..." />
     <table class="table table-striped">
