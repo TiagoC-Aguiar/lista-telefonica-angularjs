@@ -9,7 +9,11 @@
 
 # Aplicação de lista telefônica
 
-### Aplicação apresentada no curso de AngulaJS no canal do Rodrigo Branas
+:card_index: :bookmark: Gerenciamento (inclusão e exclusão) de contatos.  :memo:
+
+> Aplicação apresentada no curso de AngulaJS no canal do [Rodrigo Branas, no youtube](https://www.youtube.com/playlist?list=PLQCmSnNFVYnTD5p2fR4EXmtlR6jQJMbPb)
+
+![image](https://user-images.githubusercontent.com/49824490/103249099-67a2d980-494c-11eb-9088-422c254b5f8d.png)
 
 ## License
 [Apache License](https://github.com/TiagoC-Aguiar/lista-telefonica-angularjs/blob/main/LICENSE) © [Tiago Aguiar](https://github.com/TiagoC-Aguiar)
