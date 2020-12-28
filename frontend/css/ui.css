@@ -6,12 +6,12 @@
   margin-bottom: 18px;
 }
 
-.ui-alert-title {
+.ui-alert-title, .ui-alert-message {
   color: #A44;
+}
+
+.ui-alert-title {
   font-weight: bold;
   font-size: 22px;
 }
 
-.ui-alert-message {
-  color: #A44;
-}

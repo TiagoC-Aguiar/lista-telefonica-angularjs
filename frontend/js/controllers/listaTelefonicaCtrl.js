@@ -10,10 +10,8 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', ($scope, con
         item.serial = serialGenerator.generate();
       });
       $scope.contatos = data;
-      console.log('está em contatos');
     // eslint-disable-next-line no-unused-vars
     }).catch((error) => {
-      console.log('entrou no catch');
       $scope.error = 'Não foi possível carregar os dados!';
       // $scope.message = `Erro ao carregar contatos: ${error.data}`;
     });
