@@ -5,6 +5,7 @@
 ![](https://img.shields.io/github/last-commit/tiagoc-aguiar/lista-telefonica-angularjs?color=f05032&logo=git)
 ![](https://img.shields.io/badge/platform-Ubuntu-e95420?logo=ubuntu)
 ![](https://img.shields.io/badge/Node.js-15.5-393?logo=node.js)
+![](https://img.shields.io/badge/AngularJS-e33?logo=AngularJS&style=plastic)
 
 # Aplicação de lista telefônica
 
