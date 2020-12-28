@@ -4,6 +4,7 @@
   <title>Lista Telefônica</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css" />  
+  <link rel="stylesheet" href="css/ui.css" />  
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-messages.js"></script>
   <script src="lib/angular/angular-locale_pt-br.js"></script>
@@ -16,11 +17,15 @@
   <script src="js/value/configValue.js"></script>
   <script src="js/filters/nameFilter.js"></script>
   <script src="js/filters/ellipsisFilter.js"></script>
+  <script src="js/directives/uiAlertDirective.js"></script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
   <div class="jumbotron">    
-    <h3>{{app}}</h3>
-    {{message}}
+    <h2>{{app}}</h2>
+    
+    {{$id}}
+    <div ui-alert></div>    
+
     <input class="form-control" type="text" ng-model="criterioBusca" placeholder="Pesquisar..." />
     <table class="table table-striped">
       <tr>
