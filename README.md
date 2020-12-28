@@ -6,6 +6,7 @@
 ![](https://img.shields.io/badge/platform-Ubuntu-e95420?logo=ubuntu)
 ![](https://img.shields.io/badge/Node.js-15.5-393?logo=node.js)
 ![](https://img.shields.io/badge/AngularJS-e33?logo=AngularJS&style=plastic)
+![licence mit](https://img.shields.io/badge/licence-Apache-blue.svg)
 
 # Aplicação de lista telefônica
 
