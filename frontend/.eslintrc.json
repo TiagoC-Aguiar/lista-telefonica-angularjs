@@ -11,6 +11,11 @@
     },
     "rules": {
       "no-undef": "off",
-      "no-param-reassign": ["error", {"props": false}]
+      "no-param-reassign": ["error", {"props": false}],
+      "keyword-spacing": ["error", { "overrides": {
+        "if": { "after": false },
+        "for": { "after": false },
+        "while": { "after": false }
+      } }]
     }
 }
