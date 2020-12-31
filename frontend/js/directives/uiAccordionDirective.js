@@ -7,9 +7,11 @@ angular.module('listaTelefonica').directive('uiAccordions', function () {
         accordions.push(accordion);
       };
 
-      this.closeAll = function () {
+      this.closeAll = function (keep) {
         accordions.forEach(function (accordion) {
-          accordion.isOpened = false;
+          if(accordion.$id !== keep.$id) {
+            accordion.isOpened = false;
+          }
         });
       };
     },
@@ -27,8 +29,8 @@ angular.module('listaTelefonica').directive('uiAccordion', function () {
     link: function (scope, element, attrs, ctrl) {
       ctrl.registerAccordion(scope);
       scope.open = function () {
-        ctrl.closeAll();
-        scope.isOpened = true;
+        ctrl.closeAll(scope);
+        scope.isOpened = !scope.isOpened;
       };
     },
   };
