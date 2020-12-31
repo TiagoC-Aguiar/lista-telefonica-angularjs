@@ -36,7 +36,11 @@ cd backend
 npm install
 ```
 
+<<<<<<< HEAD
 Volte à pasta raiz:
+=======
+volte à pasta raiz:
+>>>>>>> 64b3f11e16e2bbd070267d4c25ba046bf6487cc8
 
 ```cd ..```
 
