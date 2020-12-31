@@ -1,4 +1,5 @@
-angular.module('listaTelefonica').controller('listaTelefonicaCtrl', ($scope, contatosAPI, operadorasAPI, serialGenerator) => {
+/* eslint-disable prefer-arrow-callback */
+angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($scope, contatosAPI, operadorasAPI, serialGenerator) {
   $scope.app = 'Lista Telefônica';
   $scope.contatos = [];
   $scope.operadoras = [];

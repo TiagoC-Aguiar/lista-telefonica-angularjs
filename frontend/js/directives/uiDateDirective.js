@@ -7,8 +7,9 @@ angular.module('listaTelefonica').directive('uiDate', () => {
       const formatedDate = (date) => {
         const slashStandardDate = [2, 5];
         slashStandardDate.forEach((item) => {
-          if (date.length > item) {
-            date = `${date.substring(0, item)}/${date.substring(item, 9)}`;
+          if(date.length > item) {
+            // eslint-disable-next-line prefer-template
+            date = date.substring(0, item) + '/' + date.substring(item, 9);
           }
         });
         return date;
