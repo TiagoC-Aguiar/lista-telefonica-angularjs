@@ -24,4 +24,4 @@ function cleanTask() {
     .pipe(clean());
 }
 
-exports.default = series(cleanTask, jshintTask, uglifyTask);
+exports.default = series(cleanTask, uglifyTask);
