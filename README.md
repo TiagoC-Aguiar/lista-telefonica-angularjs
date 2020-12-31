@@ -15,5 +15,37 @@
 
 ![image](https://user-images.githubusercontent.com/49824490/103249099-67a2d980-494c-11eb-9088-422c254b5f8d.png)
 
+## Exexcutar projeto com NPM
+---
+**Você precisa ter o [Node.js](https://nodejs.org/en/download/) e [NPM](https://www.npmjs.com/get-npm) (ou [Yarn](https://yarnpkg.com/)) instalados na sua máquina.**
+
+**Execute os comandos abaixo:**
+
+### Instalando o projeto
+
+Baixe o projeto:
+
+```
+git clone https://github.com/TiagoC-Aguiar/lista-telefonica-angularjs.git
+```
+
+Acesse a pasta ```backend``` e instale  as dependências:
+
+```
+cd backend
+npm install
+```
+
+Volte à pasta raiz:
+
+```cd ..```
+
+Na pasta ```frontend```, instale  as dependências:
+
+```
+cd frontend
+npm install
+```
+
 ## License
 [Apache License](https://github.com/TiagoC-Aguiar/lista-telefonica-angularjs/blob/main/LICENSE) © [Tiago Aguiar](https://github.com/TiagoC-Aguiar)
