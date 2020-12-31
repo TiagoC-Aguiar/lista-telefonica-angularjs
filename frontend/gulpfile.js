@@ -3,6 +3,7 @@ const uglify = require('gulp-uglify');
 const clean = require('gulp-clean');
 const concat = require('gulp-concat');
 const htmlmin = require('gulp-htmlmin');
+const cleanCSS = require('gulp-clean-css');
 // const jshint = require('gulp-jshint');
 
 // function jshintTask() {
@@ -30,4 +31,18 @@ function htmlMinTask() {
     .pipe(dest('dist'));
 }
 
-exports.default = series(cleanTask, parallel(uglifyTask, htmlMinTask));
+function cleanCSSTask() {
+  return src(['lib/bootstrap/css/bootstrap.css', 'css/**/*.css'])
+    .pipe(concat('styles.min.css'))
+    .pipe(cleanCSS())
+    .pipe(dest('dist'));
+}
+
+exports.default = series(
+  cleanTask,
+  parallel(
+    uglifyTask,
+    htmlMinTask,
+    cleanCSSTask,
+  ),
+);
