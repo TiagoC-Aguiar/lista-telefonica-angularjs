@@ -9,7 +9,8 @@ const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 
 function uglifyTask() {
-  return src(['lib/**/*.js', 'js/**/*.js'])
+  const path = 'lib/angular/angular';
+  return src([`${path}.js`, `${path}-messages.js`, `${path}-locale_pt-br.js`, `${path}-route.js`, 'js/**/*.js'])
     .pipe(uglify())
     .pipe(concat('all.min.js'))
     .pipe(dest('dist/js'));
@@ -40,6 +41,11 @@ function copy() {
     .pipe(dest('dist/'));
 }
 
+function copyAngularMap() {
+  return src('lib/angular/angular.min.js.map')
+    .pipe(dest('dist/js'));
+}
+
 exports.default = series(
   cleanTask,
   parallel(
@@ -47,5 +53,6 @@ exports.default = series(
     htmlMinTask,
     cleanCSSTask,
     copy,
+    copyAngularMap,
   ),
 );
