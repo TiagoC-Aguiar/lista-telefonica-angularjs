@@ -1,8 +1,8 @@
-/* eslint-disable arrow-body-style */
-const { series, src, dest } = require('gulp');
+const { series, parallel, src, dest } = require('gulp');
 const uglify = require('gulp-uglify');
 const clean = require('gulp-clean');
 const concat = require('gulp-concat');
+const htmlmin = require('gulp-htmlmin');
 // const jshint = require('gulp-jshint');
 
 // function jshintTask() {
@@ -24,4 +24,10 @@ function cleanTask() {
     .pipe(clean());
 }
 
-exports.default = series(cleanTask, uglifyTask);
+function htmlMinTask() {
+  return src('view/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('dist'));
+}
+
+exports.default = series(cleanTask, parallel(uglifyTask, htmlMinTask));
