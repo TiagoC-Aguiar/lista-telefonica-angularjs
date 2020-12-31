@@ -1,17 +1,12 @@
-const { series, parallel, src, dest } = require('gulp');
+const {
+  series, parallel, src, dest,
+} = require('gulp');
 const uglify = require('gulp-uglify');
 const clean = require('gulp-clean');
 const concat = require('gulp-concat');
 const htmlmin = require('gulp-htmlmin');
 const cleanCSS = require('gulp-clean-css');
-// const jshint = require('gulp-jshint');
-
-// function jshintTask() {
-//   return src('js/**/*.js')
-//     .pipe(jshint())
-//     .pipe(jshint.reporter('default'))
-//     .pipe(jshint.reporter('fail'));
-// }
+const rename = require('gulp-rename');
 
 function uglifyTask() {
   return src(['lib/**/*.js', 'js/**/*.js'])
@@ -35,7 +30,14 @@ function cleanCSSTask() {
   return src(['lib/bootstrap/css/bootstrap.css', 'css/**/*.css'])
     .pipe(concat('styles.min.css'))
     .pipe(cleanCSS())
-    .pipe(dest('dist'));
+    .pipe(dest('dist/css'));
+}
+
+function copy() {
+  return src('./index-prod.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(rename('index.html'))
+    .pipe(dest('dist/'));
 }
 
 exports.default = series(
@@ -44,5 +46,6 @@ exports.default = series(
     uglifyTask,
     htmlMinTask,
     cleanCSSTask,
+    copy,
   ),
 );
