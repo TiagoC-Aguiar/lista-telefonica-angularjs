@@ -16,6 +16,9 @@
         "if": { "after": false },
         "for": { "after": false },
         "while": { "after": false }
-      } }]
+      } }],
+      "prefer-arrow-callback": "off",
+      "func-names": ["warn", "never"],
+      "object-shorthand": ["error", "never"]
     }
 }
