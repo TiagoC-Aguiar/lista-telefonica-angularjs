@@ -56,9 +56,7 @@ cd backend
 npm start
 ```
 
-Volte à pasta raiz:
-
-```cd ..```
+Em outro terminal acesse a pasta do projeto
 
 Na pasta ```frontend```, execute o projeto:
 
