@@ -19,6 +19,7 @@
       } }],
       "prefer-arrow-callback": "off",
       "func-names": ["warn", "never"],
-      "object-shorthand": ["error", "never"]
+      "object-shorthand": ["error", "never"],
+      "prefer-template": "off"
     }
 }
