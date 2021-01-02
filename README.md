@@ -47,6 +47,8 @@ cd frontend
 npm install
 ```
 
+---
+
 ### Executando o projeto
 
 Acesse a pasta ```backend``` e execute o projeto com npm utilizando o seguinte comando:
