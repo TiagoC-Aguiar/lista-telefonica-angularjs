@@ -67,5 +67,7 @@ cd frontend
 npm start
 ```
 
+---
+
 ## License
 [Apache License](https://github.com/TiagoC-Aguiar/lista-telefonica-angularjs/blob/main/LICENSE) © [Tiago Aguiar](https://github.com/TiagoC-Aguiar)
