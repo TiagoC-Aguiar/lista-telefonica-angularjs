@@ -1,4 +1,5 @@
-angular.module('listaTelefonica').controller('listaTelefonicaCtrl', ($scope, contatosAPI, operadorasAPI, serialGenerator) => {
+/* eslint-disable prefer-arrow-callback */
+angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($scope, contatosAPI, operadorasAPI, serialGenerator) {
   $scope.app = 'Lista Telefônica';
   $scope.contatos = [];
   $scope.operadoras = [];
@@ -25,7 +26,6 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', ($scope, con
 
   $scope.adicionarContato = function (contato) {
     contato.serial = serialGenerator.generate();
-    contato.data = new Date();
     contatosAPI.saveContato(contato).then(function (response) {
       delete $scope.contato;
       $scope.contatoForm.$setPristine();

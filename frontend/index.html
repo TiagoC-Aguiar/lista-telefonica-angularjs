@@ -8,24 +8,75 @@
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-messages.js"></script>
   <script src="lib/angular/angular-locale_pt-br.js"></script>
+  <script src="lib/serialGenerator/serialGenerator.js"></script>
+  <script src="lib/ui/ui.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers/listaTelefonicaCtrl.js"></script>
   <script src="js/services/contatosAPIService.js"></script>
   <script src="js/services/operadorasAPIService.js"></script>
-  <script src="js/services/serialGeneratorService.js"></script>
-  <script src="js/services/config/serialGeneratorConfig.js"></script>
+  <script src="js/config/serialGeneratorConfig.js"></script>
   <script src="js/value/configValue.js"></script>
   <script src="js/filters/nameFilter.js"></script>
   <script src="js/filters/ellipsisFilter.js"></script>
   <script src="js/directives/uiAlertDirective.js"></script>
+  <script src="js/directives/uiDateDirective.js"></script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
   <div class="jumbotron">    
-    <h2>{{app}}</h2>
-       
-    <ui-alert title="Opa, aconteceu um problema!">
-      {{error}}
-    </ui-alert>    
+    
+    <ui-accordions>
+      <ui-accordion title="Accordion 1">
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+      </ui-accordion>
+      <ui-accordion title="Accordion 2">
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+      </ui-accordion>
+      <ui-accordion title="Accordion 3">
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+      </ui-accordion>
+      <ui-accordion title="Accordion 4">
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+      </ui-accordion>
+      <ui-accordion title="Accordion 5">
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+      </ui-accordion>
+      <ui-accordion title="Accordion 6">
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+        E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
+      </ui-accordion>
+
+    </ui-accordions>
+
+    <hr/>
 
     <input class="form-control" type="text" ng-model="criterioBusca" placeholder="Pesquisar..." />
     <table class="table table-striped">
@@ -42,10 +93,10 @@
         ng-repeat="contato in contatos | filter:criterioBusca | orderBy:criterioOrdenacao:direcaoOrdenacao">
         <td><input type="checkbox" ng-model="contato.selecionado" /></td>
         <td>{{contato.serial}}</td>
-        <td>{{contato.nome | name | ellipsis:11 }}</td>
+        <td>{{contato.nome | name | ellipsis:15 }}</td>
         <td>{{contato.telefone}}</td>
         <td>{{contato.operadora.nome | lowercase}}</td>
-        <td>{{contato.data | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{contato.data | date:'dd/MM/yyyy'}}</td>
         <td>
           <div style="width: 20px; height: 20px;" ng-style="{'background-color': contato.cor}"></div>
         </td>
@@ -57,6 +108,7 @@
         ng-minlength="5" />
       <input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="Telefone"
         ng-required="true" minlength="8" ng-pattern="/^\d{4,5}-?\d{4}$/" />
+      <input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="Data" ui-date />
       <select class="form-control" ng-model="contato.operadora"
         ng-options="operadora.nome + ' (' + (operadora.preco | currency) + ') ' for operadora in operadoras | orderBy:'nome'">
         <option value="">Selecione uma operadora...</option>
