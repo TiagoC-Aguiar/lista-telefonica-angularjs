@@ -47,5 +47,25 @@ cd frontend
 npm install
 ```
 
+### Executando o projeto
+
+Acesse a pasta ```backend``` e execute o projeto com npm utilizando o seguinte comando:
+
+```
+cd backend
+npm start
+```
+
+Volte à pasta raiz:
+
+```cd ..```
+
+Na pasta ```frontend```, execute o projeto:
+
+```
+cd frontend
+npm start
+```
+
 ## License
 [Apache License](https://github.com/TiagoC-Aguiar/lista-telefonica-angularjs/blob/main/LICENSE) © [Tiago Aguiar](https://github.com/TiagoC-Aguiar)
