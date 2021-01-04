@@ -24,15 +24,6 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
     });
   };
 
-  $scope.adicionarContato = function (contato) {
-    contato.serial = serialGenerator.generate();
-    contatosAPI.saveContato(contato).then(function (response) {
-      delete $scope.contato;
-      $scope.contatoForm.$setPristine();
-      carregarContatos();
-    });
-  };
-
   // eslint-disable-next-line arrow-body-style
   $scope.estaSelecionado = () => {
     // eslint-disable-next-line arrow-body-style
