@@ -4,4 +4,8 @@ angular.module('listaTelefonica').config(function ($routeProvider, $locationProv
     templateUrl: 'view/contatos.html',
     controller: 'listaTelefonicaCtrl'
   });
+  $routeProvider.when('/novocontato', {
+    templateUrl: 'view/novoContato.html',
+    controller: 'listaTelefonicaCtrl'
+  });
 });

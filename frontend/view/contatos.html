@@ -1,7 +1,7 @@
 <div class="jumbotron">     
   <ui-accordions>
     <ui-accordion title="Accordion 1">
-      texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+      texto que precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
       E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
@@ -9,7 +9,7 @@
       E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
     </ui-accordion>
     <ui-accordion title="Accordion 2">
-      texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+      texto qualquer ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
       E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
@@ -17,7 +17,7 @@
       E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
     </ui-accordion>
     <ui-accordion title="Accordion 3">
-      texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+      texto qualquer que  para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
       E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
@@ -25,7 +25,7 @@
       E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
     </ui-accordion>
     <ui-accordion title="Accordion 4">
-      texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
+      texto qualquer que  precisa ser grande para ficaraá dentro do componente da diretiva que estou criando.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
       E ainda posso main. Preencher mais espaços para melhor visualização do componento novo.
       texto qualquer que  precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
@@ -78,23 +78,8 @@
     </tr>
   </table>
   <hr />
-  <form name="contatoForm">
-    <input class="form-control" type="text" name="nome" ng-model="contato.nome" placeholder="Nome" ng-required="true"
-      ng-minlength="5" />
-    <input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="Telefone"
-      ng-required="true" minlength="8" ng-pattern="/^\d{4,5}-?\d{4}$/" />
-    <input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="Data" ui-date />
-    <select class="form-control" ng-model="contato.operadora"
-      ng-options="operadora.nome + ' (' + (operadora.preco | currency) + ') ' for operadora in operadoras | orderBy:'nome'">
-      <option value="">Selecione uma operadora...</option>
-    </select>
-    <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">
-      Adicionar Contato
-    </button>
-    <button class="btn btn-danger btn-block" ng-show="estaSelecionado()" ng-click="apagarContatos(contatos)">Apagar
-      Contato</button>
-
-  </form>
+  
+  <div ng-view></div>
 
   <div ng-messages="contatoForm.nome.$error" class="alert alert-danger">
     <div ng-message="required && contatoForm.nome.$dirty">
