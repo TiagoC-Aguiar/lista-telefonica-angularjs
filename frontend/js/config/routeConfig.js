@@ -21,12 +21,12 @@ angular.module('listaTelefonica').config(function ($routeProvider, $locationProv
       },
     },
   });
-  $routeProvider.when('/detalhesContato', {
-    templateUrl: 'view/detalhersContato.html',
+  $routeProvider.when('/detalhesContato/:id', {
+    templateUrl: 'view/detalhesContato.html',
     controller: 'detalhesContatoCtrl',
     resolve: {
-      operadoras: function (operadorasAPI) {
-        return operadorasAPI.getOperadoras();
+      contato: function (contatosAPI, $route) {
+        return contatosAPI.getContato($route.current.params.id);
       },
     },
   });
