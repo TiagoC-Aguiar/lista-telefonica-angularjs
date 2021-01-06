@@ -45,7 +45,9 @@ var createRouter = function (port) {
 			}
 			routes[req.method][req.url](req, res);
 		});
-	}).listen(port);
+	}).listen(port, function () {
+		console.log('iniciado na porta: ', port);
+	});
 
 	return api;
 };

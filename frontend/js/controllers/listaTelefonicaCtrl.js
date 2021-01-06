@@ -4,8 +4,8 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
   $scope.contatos = contatos.data;
   $scope.operadoras = operadoras.data;
 
-  const generateSerial = (contatos) => {
-    contatos.forEach((item) => {
+  const generateSerial = (scopeContatos) => {
+    scopeContatos.forEach((item) => {
       item.serial = serialGenerator.generate();
     });
   };
@@ -17,9 +17,9 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
       return contato.selecionado;
     });
   };
-  $scope.apagarContatos = (contatos) => {
+  $scope.apagarContatos = (scopeContatos) => {
     // eslint-disable-next-line arrow-body-style
-    $scope.contatos = contatos.filter((contato) => {
+    $scope.contatos = scopeContatos.filter((contato) => {
       return !contato.selecionado;
     });
   };

@@ -9,8 +9,8 @@ angular.module('listaTelefonica').config(function ($routeProvider, $locationProv
       },
       operadoras: function (operadorasAPI) {
         return operadorasAPI.getOperadoras();
-      }
-    }
+      },
+    },
   });
   $routeProvider.when('/novocontato', {
     templateUrl: 'view/novoContato.html',
@@ -18,8 +18,17 @@ angular.module('listaTelefonica').config(function ($routeProvider, $locationProv
     resolve: {
       operadoras: function (operadorasAPI) {
         return operadorasAPI.getOperadoras();
-      }
-    }
+      },
+    },
   });
-  $routeProvider.otherwise({redirectTo: '/contatos'});
+  $routeProvider.when('/detalhesContato', {
+    templateUrl: 'view/detalhersContato.html',
+    controller: 'detalhesContatoCtrl',
+    resolve: {
+      operadoras: function (operadorasAPI) {
+        return operadorasAPI.getOperadoras();
+      },
+    },
+  });
+  $routeProvider.otherwise({ redirectTo: '/contatos' });
 });
