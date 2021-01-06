@@ -11,7 +11,7 @@
 
 :card_index: :bookmark: Gerenciamento (inclusão e exclusão) de contatos.  :memo:
 
-> Aplicação apresentada no curso de AngulaJS no canal do [Rodrigo Branas, no youtube](https://www.youtube.com/playlist?list=PLQCmSnNFVYnTD5p2fR4EXmtlR6jQJMbPb)
+> Aplicação apresentada no curso de AngulaJS no canal do [Rodrigo Branas, no youtube.](https://www.youtube.com/playlist?list=PLQCmSnNFVYnTD5p2fR4EXmtlR6jQJMbPb)
 
 ![image](https://user-images.githubusercontent.com/49824490/103249099-67a2d980-494c-11eb-9088-422c254b5f8d.png)
 
@@ -20,6 +20,8 @@
 **Você precisa ter o [Node.js](https://nodejs.org/en/download/) e [NPM](https://www.npmjs.com/get-npm) (ou [Yarn](https://yarnpkg.com/)) instalados na sua máquina.**
 
 **Execute os comandos abaixo:**
+
+<br/>
 
 ### Instalando o projeto
 
@@ -46,10 +48,11 @@ Na pasta ```frontend```, instale  as dependências:
 cd frontend
 npm install
 ```
-
----
+<br/>
 
 ### Executando o projeto
+
+---
 
 Acesse a pasta ```backend``` e execute o projeto com npm utilizando o seguinte comando:
 
@@ -68,4 +71,5 @@ npm start
 ```
 
 ## License
+
 [Apache License](https://github.com/TiagoC-Aguiar/lista-telefonica-angularjs/blob/main/LICENSE) © [Tiago Aguiar](https://github.com/TiagoC-Aguiar)

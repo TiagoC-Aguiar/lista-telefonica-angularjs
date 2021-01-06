@@ -1,35 +1,12 @@
 /* eslint-disable prefer-arrow-callback */
-angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($scope, contatosAPI, operadorasAPI, serialGenerator) {
+angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($scope, contatos, operadoras, serialGenerator) {
   $scope.app = 'Lista Telefônica';
-  $scope.contatos = [];
-  $scope.operadoras = [];
+  $scope.contatos = contatos.data;
+  $scope.operadoras = operadoras.data;
 
-  const carregarContatos = () => {
-    contatosAPI.getContatos().then((response) => {
-      const { data } = response;
-      data.forEach((item) => {
-        item.serial = serialGenerator.generate();
-      });
-      $scope.contatos = data;
-    // eslint-disable-next-line no-unused-vars
-    }).catch((error) => {
-      $scope.error = 'Não foi possível carregar os dados!';
-      // $scope.message = `Erro ao carregar contatos: ${error.data}`;
-    });
-  };
-
-  const carregarOperadoras = () => {
-    operadorasAPI.getOperadoras().then((response) => {
-      $scope.operadoras = response.data;
-    });
-  };
-
-  $scope.adicionarContato = function (contato) {
-    contato.serial = serialGenerator.generate();
-    contatosAPI.saveContato(contato).then(function (response) {
-      delete $scope.contato;
-      $scope.contatoForm.$setPristine();
-      carregarContatos();
+  const generateSerial = (scopeContatos) => {
+    scopeContatos.forEach((item) => {
+      item.serial = serialGenerator.generate();
     });
   };
 
@@ -40,9 +17,9 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
       return contato.selecionado;
     });
   };
-  $scope.apagarContatos = (contatos) => {
+  $scope.apagarContatos = (scopeContatos) => {
     // eslint-disable-next-line arrow-body-style
-    $scope.contatos = contatos.filter((contato) => {
+    $scope.contatos = scopeContatos.filter((contato) => {
       return !contato.selecionado;
     });
   };
@@ -51,6 +28,5 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
     $scope.direcaoOrdenacao = !$scope.direcaoOrdenacao;
   };
 
-  carregarContatos();
-  carregarOperadoras();
+  generateSerial($scope.contatos);
 });

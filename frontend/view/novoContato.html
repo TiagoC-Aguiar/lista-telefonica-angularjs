@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <form name="contatoForm">
+    <input class="form-control" type="text" name="nome" ng-model="contato.nome" placeholder="Nome" ng-required="true"
+      ng-minlength="5" />
+    <input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="Telefone"
+      ng-required="true" minlength="8" ng-pattern="/^\d{4,5}-?\d{4}$/" />
+    <input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="Data" ui-date />
+    <select class="form-control" ng-model="contato.operadora"
+      ng-options="operadora.nome + ' (' + (operadora.preco | currency) + ') ' for operadora in operadoras | orderBy:'nome'">
+      <option value="">Selecione uma operadora...</option>
+    </select>
+    <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">
+      Adicionar Contato
+    </button>
+    <button class="btn btn-danger btn-block" ng-show="estaSelecionado()" ng-click="apagarContatos(contatos)">Apagar
+      Contato</button>
+
+  </form>
+</div>
