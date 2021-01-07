@@ -27,9 +27,18 @@
   <script src="js/directives/uiDateDirective.js"></script>
   <script src="js/interceptors/timestampinterceptor.js"></script>
   <script src="js/interceptors/errorInterceptor.js"></script>
+  <script src="js/interceptors/loadingInterceptor.js"></script>
 </head>
 <body>
+
+  <div class="jumbotron" ng-show="loading">
+    <h4>Carregando...</h4>
+  </div>
+  <div ng-hide="loading">
     <div ng-view></div>
     <div ng-include="'view/footer.html'"></div>
+  </div>
+
+    
 </body>
 </html>
