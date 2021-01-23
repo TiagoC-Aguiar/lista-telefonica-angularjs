@@ -68,12 +68,12 @@
     <tr ng-class="{'selecionado negrito': contato.selecionado}"
       ng-repeat="contato in contatos | filter:criterioBusca | orderBy:criterioOrdenacao:direcaoOrdenacao">
       <td><input type="checkbox" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contatos)" /></td>
-      <td>{{contato.serial}}</td>
-      <td><a href="#/detalhesContato/{{contato.id}}">{{contato.nome | name | ellipsis:15 }}</a></td>
-      <td>{{contato.telefone}}</td>
-      <td>{{contato.operadora.nome | lowercase}}</td>
-      <td>{{contato.operadora.precoComImposto | currency}}</td>
-      <td>{{contato.data | date:'dd/MM/yyyy'}}</td>
+      <td>{{::contato.serial}}</td>
+      <td><a href="#/detalhesContato/{{contato.id}}">{{::contato.nome | name | ellipsis:15 }}</a></td>
+      <td>{{::contato.telefone}}</td>
+      <td>{{::contato.operadora.nome | lowercase}}</td>
+      <td>{{::contato.operadora.precoComImposto | currency}}</td>
+      <td>{{::contato.data | date:'dd/MM/yyyy'}}</td>
       <td>
         <div style="width: 20px; height: 20px;" ng-style="{'background-color': contato.cor}"></div>
       </td>
