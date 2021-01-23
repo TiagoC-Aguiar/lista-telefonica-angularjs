@@ -19,14 +19,26 @@
   <script src="js/services/operadorasAPIService.js"></script>
   <script src="js/config/serialGeneratorConfig.js"></script>
   <script src="js/config/routeConfig.js"></script>
+  <script src="js/config/interceptorConfig.js"></script>
   <script src="js/value/configValue.js"></script>
   <script src="js/filters/nameFilter.js"></script>
   <script src="js/filters/ellipsisFilter.js"></script>
   <script src="js/directives/uiAlertDirective.js"></script>
   <script src="js/directives/uiDateDirective.js"></script>
+  <script src="js/interceptors/timestampinterceptor.js"></script>
+  <script src="js/interceptors/errorInterceptor.js"></script>
+  <script src="js/interceptors/loadingInterceptor.js"></script>
 </head>
 <body>
+
+  <div class="jumbotron" ng-show="loading">
+    <h4>Carregando...</h4>
+  </div>
+  <div ng-hide="loading">
     <div ng-view></div>
     <div ng-include="'view/footer.html'"></div>
+  </div>
+
+    
 </body>
 </html>
