@@ -22,9 +22,9 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
   };
 
   // eslint-disable-next-line arrow-body-style
-  $scope.estaSelecionado = () => {
+  $scope.estaSelecionado = (contatos) => {
     // eslint-disable-next-line arrow-body-style
-    return $scope.contatos.some((contato) => {
+    return contatos.some((contato) => {
       return contato.selecionado;
     });
   };

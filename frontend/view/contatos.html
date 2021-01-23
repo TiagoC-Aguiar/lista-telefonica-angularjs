@@ -83,6 +83,10 @@
   
   <a class="btn btn-primary btn-block" href="#/novocontato">Novo Contato</a>  
 
+  <button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-if="estaSelecionado(contatos)">
+    Apagar Contato(s)
+  </button>
+
   <div ng-messages="contatoForm.nome.$error" class="alert alert-danger">
     <div ng-message="required && contatoForm.nome.$dirty">
       Por favor, preencha o campo nome!
