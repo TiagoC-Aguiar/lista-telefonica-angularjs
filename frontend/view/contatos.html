@@ -53,7 +53,13 @@
 
   <hr/>
 
-  <input class="form-control" type="text" ng-model="criterioBusca" placeholder="Pesquisar..." />
+  <input 
+    class="form-control" 
+    type="text" 
+    ng-model="criterioBusca" 
+    ng-model-options="{updateOn: 'default blur', debounce:{default: 450, blur:0}}" 
+    placeholder="Pesquisar..." 
+  />
   <table class="table table-striped">
     <tr>
       <th></th>
