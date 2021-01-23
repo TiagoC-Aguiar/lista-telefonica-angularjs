@@ -20,19 +20,24 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
       item.serial = serialGenerator.generate();
     });
   };
-
+  
   // eslint-disable-next-line arrow-body-style
-  $scope.estaSelecionado = (contatos) => {
+  $scope.verificarContatoSelecionado = function (contatos) {
     // eslint-disable-next-line arrow-body-style
-    return contatos.some((contato) => {
-      return contato.selecionado;
+    console.log(counter++);
+    console.log(contatos);
+    $scope.hasContatoSelecionado = contatos.some((contato) => {
+      return contato.selecionado === true;
     });
+
   };
+
   $scope.apagarContatos = (scopeContatos) => {
     // eslint-disable-next-line arrow-body-style
     $scope.contatos = scopeContatos.filter((contato) => {
       return !contato.selecionado;
     });
+    $scope.verificarContatoSelecionado($scope.contatos);
   };
 
   $scope.ordenarPor = function (campo) {
@@ -40,10 +45,7 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
     $scope.direcaoOrdenacao = !$scope.direcaoOrdenacao;
   };
 
-  var counter = 1;
-
   var calcularImposto = function (preco) {    
-    console.log(counter++);
     const imposto = 1.2;
     return preco * imposto;
   }
