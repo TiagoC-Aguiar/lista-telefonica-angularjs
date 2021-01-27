@@ -1,4 +1,9 @@
+<button class="btn btn-primary" ng-click="showImage=!showImage">Show/Hide Image</button>
+<div ng-if="showImage">
+  <img ng-src="img/agilecode.png" />
+</div>
 <div class="jumbotron">     
+  {{app}}
   <ui-accordions>
     <ui-accordion title="Accordion 1">
       texto que precisa ser grande para exemplificar melhor o conteúdo que ficaraá dentro do componente da diretiva que estou criando.
@@ -71,8 +76,9 @@
       <th>Data</th>
       <th></th>
     </tr>
-    <tr ng-class="{'selecionado negrito': contato.selecionado}"
-      ng-repeat="contato in contatos | filter:criterioBusca | orderBy:criterioOrdenacao:direcaoOrdenacao">
+    <tr 
+      ng-class="{'selecionado negrito': contato.selecionado}"
+      ng-repeat="contato in contatos | filter:criterioBusca | orderBy:criterioOrdenacao:direcaoOrdenacao track by contato.id">
       <td><input type="checkbox" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contatos)" /></td>
       <td>{{::contato.serial}}</td>
       <td><a href="#/detalhesContato/{{contato.id}}">{{::contato.nome | name | ellipsis:15 }}</a></td>

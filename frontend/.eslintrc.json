@@ -27,6 +27,7 @@
     "no-underscore-dangle": [
       "error",
       { "allow": ["_length", "_getContatos", "_getContato", "_saveContato"] }
-    ]
+    ],
+    "no-shadow": "off"
   }
 }
